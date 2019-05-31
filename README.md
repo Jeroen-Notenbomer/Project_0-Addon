@@ -42,23 +42,23 @@ See the [ACE3 documentation](https://ace3mod.com/wiki/development/setting-up-the
 
 Search and replace all mentions of the following:
 ```
-proj_templ by {your_prefix}
+project_0 by {your_prefix}
 ```
 
 ```
-PROJ_TEMPL by {PROJ_TEMPL}
+PROJECT_0 by {PROJECT_0}
 ```
-Note that both lower and upper case are necessary. Once done, replace the logo (`logo_proj_templ_ca.paa`) by your own. Keep the same aspect ratio and file extension (`.paa`). This is important for good results in game. Also remember to rename the logo file to `logo_{your_prefix}_ca.paa`.
+Note that both lower and upper case are necessary. Once done, replace the logo (`logo_project_0_ca.paa`) by your own. Keep the same aspect ratio and file extension (`.paa`). This is important for good results in game. Also remember to rename the logo file to `logo_{your_prefix}_ca.paa`.
 
 
 ##### Example:
 
 ```
-proj_templ by acex
+project_0 by acex
 ```
 
 ```
-PROJ_TEMPL by ACEX
+PROJECT_0 by ACEX
 ```
 
 ### Tooling

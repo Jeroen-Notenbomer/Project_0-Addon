@@ -1,10 +1,10 @@
-name = "Advanced Combat Environment 3 - Project Template";
-picture = "logo_proj_templ_ca.paa";
+name = "Project 0 Addon";
+picture = "logo_project_0_ca.paa";
 actionName = "GitHub";
-action = "https://github.com/acemod/arma-project-template";
+action = "https://github.com/Jeroen-Notenbomer/Project_0-Addon";
 description = "Project Template";
-logo = "logo_proj_templ_ca.paa";
-logoOver = "logo_proj_templ_ca.paa";
+logo = "logo_project_0_ca.paa";
+logoOver = "logo_project_0_ca.paa";
 tooltip = "ACE3 Project Template";
 tooltipOwned = "ACE3 Project Template Owned";
 overview = "Advanced Combat Environment 3 Project Template";
