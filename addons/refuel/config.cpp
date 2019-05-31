@@ -6,13 +6,12 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {};
+        requiredAddons[] = {"project_0_main"};
         author = "";
-        authors[] = {"Project_0 Team", "ACE Team (template)"};
-        authorUrl = "";
+        authors[] = {""};
         VERSION_CONFIG;
     };
 };
 
 #include "CfgEventHandlers.hpp"
-#include "CfgModuleCategories.hpp"
+#include "CfgVehicles.hpp"
