@@ -2,7 +2,7 @@
 /*%FSM<HEAD>*/
 /*
 item0[] = {"wait",4,218,-1280.000000,-400.000000,-1180.000000,-340.000000,0.000000,"wait"};
-item1[] = {"Init",0,250,-1280.000000,-640.000000,-1180.000000,-600.000000,0.000000,"Init"};
+item1[] = {"Init",0,250,-1280.000000,-643.521912,-1180.000000,-603.521912,0.000000,"Init"};
 item2[] = {"process_new_dang",2,250,-1140.000000,-580.000000,-1040.000000,-520.000000,0.000000,"process" \n "new danger"};
 item3[] = {"true",8,218,-1280.000000,-580.000000,-1180.000000,-520.000000,0.000000,"true"};
 item4[] = {"caluclate_fleeing",2,250,-1280.000000,-500.000000,-1180.000000,-440.000000,0.000000,"caluclate fleeing" \n "point"};
@@ -10,20 +10,24 @@ item5[] = {"check_queue_for",2,250,-1280.000000,-320.000000,-1180.000000,-260.00
 item6[] = {"new_events",4,218,-1140.000000,-320.000000,-1040.000000,-260.000000,10.000000,"new events"};
 item7[] = {"no_new_danger_en",1,250,-1400.000000,-220.000000,-1300.000000,-180.000000,0.000000,"no new danger" \n "end"};
 item8[] = {"no_threat",8,218,-1280.000000,-240.000000,-1180.000000,-180.000000,0.000000,"no threat"};
-item9[] = {"ai_deleted",4,4314,-1400.000000,-320.000000,-1300.000000,-260.000000,20.000000,"ai deleted"};
+item9[] = {"ai_deleted",4,218,-1400.000000,-320.000000,-1300.000000,-260.000000,20.000000,"ai deleted"};
+item10[] = {"bad_cause",4,218,-1417.296021,-639.966553,-1327.295898,-589.966553,666.000000,"bad" \n "cause"};
+item11[] = {"bad_cause",1,250,-1548.322021,-636.871765,-1458.322021,-586.871765,0.000000,"bad cause"};
 link0[] = {0,5};
 link1[] = {1,3};
-link2[] = {2,3};
-link3[] = {3,4};
-link4[] = {4,0};
-link5[] = {5,6};
-link6[] = {5,8};
-link7[] = {5,9};
-link8[] = {6,2};
-link9[] = {8,7};
-link10[] = {9,7};
-globals[] = {0.000000,0,0,0,0,640,480,1,221,6316128,1,-2015.107178,52.545029,330.873962,-664.458374,1404,910,1};
-window[] = {2,-1,-1,-1,-1,955,195,1359,137,3,1422};
+link2[] = {1,10};
+link3[] = {2,3};
+link4[] = {3,4};
+link5[] = {4,0};
+link6[] = {5,6};
+link7[] = {5,8};
+link8[] = {5,9};
+link9[] = {6,2};
+link10[] = {8,7};
+link11[] = {9,7};
+link12[] = {10,11};
+globals[] = {0.000000,0,0,0,0,640,480,1,230,6316128,1,-1726.530518,-737.578857,-63.505371,-686.178467,1404,884,1};
+window[] = {2,-1,-1,-1,-1,922,104,1268,104,3,1422};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -39,6 +43,7 @@ class FSM
                          "//[""printDanger"",""x"",_this] call bis_fnc_cp_debug;" \n
                          "" \n
                          "//create the initial queue, will be updated from engine" \n
+                         "" \n
                          "private _queue = [[_dangerCause,_dangerPos,nil,_dangerCausedBy]];" \n
                          "" \n
                          "//agregated threat value" \n
@@ -51,6 +56,17 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "bad_cause">*/
+                                class bad_cause
+                                {
+                                        itemno = 10;
+                                        priority = 666.000000;
+                                        to="bad_cause";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_dangerCause == 3;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "true">*/
                                 class true
                                 {
@@ -191,11 +207,24 @@ class FSM
                         };
                 };
                 /*%FSM</STATE>*/
+                /*%FSM<STATE "bad_cause">*/
+                class bad_cause
+                {
+                        name = "bad_cause";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
         };
         initState="Init";
         finalStates[] =
         {
                 "no_new_danger_en",
+                "bad_cause",
         };
 };
 /*%FSM</COMPILE>*/

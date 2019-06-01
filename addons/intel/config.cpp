@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"project_0_main","A3_Modules_F"};
+        requiredAddons[] = {"project_0_main"};
         author = "";
         authors[] = {""};
         VERSION_CONFIG;
@@ -14,4 +14,4 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-#include "CfgVehicles.hpp"
+#include "CfgMagazines.hpp"
