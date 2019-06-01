@@ -6,7 +6,11 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {};
+        requiredAddons[] = {
+			"cba_ui",
+            "cba_xeh",
+            "cba_jr"
+		};
         author = "";
         authors[] = {"Project_0 Team", "ACE Team (template)"};
         authorUrl = "";
